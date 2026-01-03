@@ -1,0 +1,207 @@
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>吉依卡哇行動手冊 & 親子活動報名</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    
+    <style>
+        body {
+            background-color: #fff9f0;
+            font-family: "Microsoft JhengHei", sans-serif;
+        }
+        .jumbotron {
+            background-color: #ffdae0;
+            border-bottom: 5px solid #f8bbd0;
+        }
+        .character-card {
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            background: white;
+        }
+        .character-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .card-img-top {
+            height: 220px;
+            object-fit: cover;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #d81b60;
+            display: block;
+            margin-top: 10px;
+        }
+        .activity-section {
+            background-color: #ffffff;
+            border-radius: 30px;
+            padding: 50px 20px;
+            margin-top: 50px;
+            border: 3px dashed #ffdae0;
+        }
+        .activity-card {
+            border: none;
+            background-color: #fff5f7;
+            border-radius: 15px;
+            padding: 20px;
+            height: 100%;
+            border-left: 5px solid #d81b60;
+        }
+        .step-badge {
+            background-color: #d81b60;
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+        .form-container {
+            background-color: #ffdae0;
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+        #success-msg { display: none; }
+
+        .modal-content { border-radius: 20px; border: none; }
+        .modal-header { border-top-left-radius: 20px; border-top-right-radius: 20px; }
+        #chiikawaModal .modal-header { background-color: #ffdae0; }
+        #hachiwareModal .modal-header { background-color: #e3f2fd; }
+        #usagiModal .modal-header { background-color: #fffde7; }
+        #kurimanjuModal .modal-header { background-color: #efebe9; }
+        #momongaModal .modal-header { background-color: #fce4ec; }
+        #rakkoModal .modal-header { background-color: #343a40; color: white; }
+        #rakkoModal .close { color: white; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1">💖 吉依卡哇行動手冊</span>
+            <a href="#activity-apply" class="btn btn-danger btn-sm">立即報名活動</a>
+        </div>
+    </nav>
+
+    <header class="jumbotron jumbotron-fluid text-center">
+        <div class="container">
+            <h1 class="display-4 font-weight-bold">吉依卡哇行動手冊</h1>
+            <p class="lead">點擊下方角色卡片查看檔案，滑到最下方參加「勇氣小冒險」活動</p>
+        </div>
+    </header>
+
+    <main class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-4">
+                <div class="card character-card shadow-sm h-100" data-toggle="modal" data-target="#chiikawaModal">
+                    <img src="吉依卡哇.jpg" class="card-img-top" alt="吉依卡哇">
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-weight-bold">吉依卡哇</h5>
+                        <span class="badge badge-pill badge-danger">核心主角</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card character-card shadow-sm h-100" data-toggle="modal" data-target="#hachiwareModal">
+                    <img src="小巴貓.jpeg" class="card-img-top" alt="小八">
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-weight-bold">小八</h5>
+                        <span class="badge badge-pill badge-primary">友情支持</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card character-card shadow-sm h-100" data-toggle="modal" data-target="#usagiModal">
+                    <img src="烏薩奇.jpg" class="card-img-top" alt="兔兔">
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-weight-bold">烏薩奇</h5>
+                        <span class="badge badge-pill badge-warning text-dark">自由意志</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card character-card shadow-sm h-100" data-toggle="modal" data-target="#kurimanjuModal">
+                    <img src="栗子饅頭.jpg" class="card-img-top" alt="栗子饅頭">
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-weight-bold">栗子饅頭</h5>
+                        <span class="badge badge-pill badge-secondary">成熟大人</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card character-card shadow-sm h-100" data-toggle="modal" data-target="#momongaModal">
+                    <img src="小桃.jpg" class="card-img-top" alt="小桃">
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-weight-bold">小桃</h5>
+                        <span class="badge badge-pill" style="background-color: #f48fb1; color: white;">可愛(?)威脅</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card character-card shadow-sm h-100" data-toggle="modal" data-target="#rakkoModal">
+                    <img src="獅薩.jpg" class="card-img-top" alt="海獺師傅">
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-weight-bold">海獺師傅</h5>
+                        <span class="badge badge-pill badge-dark">實力頂點</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="container activity-section shadow-sm mb-5" id="activity-apply">
+        <div class="text-center mb-5">
+            <h2 class="font-weight-bold" style="color: #d81b60;">「吉依卡哇的勇氣小冒險」親子活動</h2>
+            <p class="lead">雖然害怕，還是願意努力！陪著孩子一起完成挑戰。</p>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-4"><div class="activity-card shadow-sm"><h5><span class="step-badge">1</span> 吉依卡哇的勇氣任務</h5><p class="small text-muted">抽取情緒卡，由家長陪同說出感受。</p></div></div>
+            <div class="col-md-6 mb-4"><div class="activity-card shadow-sm"><h5><span class="step-badge">2</span> 小八的合作挑戰</h5><p class="small text-muted">親子合作完成拼圖，培養默契。</p></div></div>
+            <div class="col-md-6 mb-4"><div class="activity-card shadow-sm"><h5><span class="step-badge">3</span> 烏薩奇的行動挑戰</h5><p class="small text-muted">聽到「呀哈！」做指定動作，提升肢體協調。</p></div></div>
+            <div class="col-md-6 mb-4"><div class="activity-card shadow-sm"><h5><span class="step-badge">4</span> 栗子饅頭的休息時光</h5><p class="small text-muted">動手做造型點心，學習任務後要好好休息。</p></div></div>
+        </div>
+        <div class="form-container shadow">
+            <div id="apply-form-area">
+                <h3 class="text-center font-weight-bold mb-4">立即報名冒險活動</h3>
+                <form id="adventureForm">
+                    <div class="form-row">
+                        <div class="form-group col-md-6"><label>家長姓名</label><input type="text" class="form-control" required></div>
+                        <div class="form-group col-md-6"><label>聯絡電話</label><input type="tel" class="form-control" required></div>
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-block btn-lg mt-3">提交報名資料</button>
+                </form>
+            </div>
+            <div id="success-msg" class="text-center py-4"><h3>🎉 報名成功！</h3><button class="btn btn-outline-dark mt-3" onclick="location.reload()">回首頁</button></div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="chiikawaModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title font-weight-bold">吉依卡哇</h5><button type="button" class="close" data-dismiss="modal">&times;</button></div><div class="modal-body"><p><span class="info-label">個性：</span>膽小、善良、容易哭，但內心堅強</p><p><span class="info-label">定位：</span>故事核心主角，象徵平凡卻努力生活的人</p></div></div></div></div>
+    <div class="modal fade" id="hachiwareModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title font-weight-bold">小八</h5><button type="button" class="close" data-dismiss="modal">&times;</button></div><div class="modal-body"><p><span class="info-label">個性：</span>樂觀、開朗、體貼，表達能力佳</p><p><span class="info-label">定位：</span>友情與情緒支持者</p></div></div></div></div>
+    <div class="modal fade" id="usagiModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title font-weight-bold">烏薩奇</h5><button type="button" class="close" data-dismiss="modal">&times;</button></div><div class="modal-body"><p><span class="info-label">個性：</span>自由奔放、行動力強</p><p><span class="info-label">定位：</span>行動派與突發狀況解決者</p></div></div></div></div>
+    <div class="modal fade" id="kurimanjuModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title font-weight-bold">栗子饅頭</h5><button type="button" class="close" data-dismiss="modal">&times;</button></div><div class="modal-body"><p><span class="info-label">個性：</span>成熟、冷靜、穩重</p><p><span class="info-label">定位：</span>懂自我療癒的大人角色</p></div></div></div></div>
+    <div class="modal fade" id="momongaModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title font-weight-bold">小桃</h5><button type="button" class="close" data-dismiss="modal">&times;</button></div><div class="modal-body"><p><span class="info-label">個性：</span>自戀、任性、愛裝可愛</p><p><span class="info-label">定位：</span>衝突製造者</p></div></div></div></div>
+    <div class="modal fade" id="rakkoModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title font-weight-bold">海獺師傅</h5><button type="button" class="close" data-dismiss="modal">&times;</button></div><div class="modal-body"><p><span class="info-label">個性：</span>嚴肅、沉穩、戰鬥力強</p><p><span class="info-label">定位：</span>實力榜樣，象徵努力後達到的高度</p></div></div></div></div>
+
+    <footer class="text-center py-4 bg-white border-top"><p class="text-muted">© 2025 吉依卡哇行動手冊</p></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#adventureForm').on('submit', function(e) {
+                e.preventDefault();
+                $('#apply-form-area').fadeOut(500, function() { $('#success-msg').fadeIn(); });
+            });
+        });
+    </script>
+</body>
+</html>
